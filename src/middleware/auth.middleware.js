@@ -16,7 +16,8 @@ function auth(allowedRoles) {
       return res.status(401).send("No autorizado");
     }
 
-    const userRole = req.session.user._doc.role;
+    // const userRole = req.session.user._doc.role;
+    const userRole = req.session.user.role;
 
     if (!allowedRoles.includes(userRole)) {
       return res.status(403).send("Acceso denegado");
